@@ -1,13 +1,18 @@
 [Unit]
 Description=Run camera of start of feedback fractals
-After=network.target
+After=multi-user.target
+
 
 [Service]
 Environment=DISPLAY=:0
+ExecStartPre=/bin/sleep 10
 ExecStart=/usr/bin/libcamera-hello -camera 0 -t 0 -f
 Restart=always
+# ATTENION! default user must be al
 User=al
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical.target
+# comment above and uncomment below to start before desktop
+# WantedBy=multi-user.target
 
