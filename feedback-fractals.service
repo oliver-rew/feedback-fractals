@@ -1,0 +1,13 @@
+[Unit]
+Description=Run camera of start of feedback fractals
+After=network.target
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/libcamera-hello -camera 0 -t 0 -f
+Restart=always
+User=al
+
+[Install]
+WantedBy=multi-user.target
+
